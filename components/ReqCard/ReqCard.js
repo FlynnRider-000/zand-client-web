@@ -78,8 +78,8 @@ export default function RecipeReviewCard(props) {
             </Button>
           </CardActions>
         </Card>
-        <RightCornerLargeRibbon backgroundColor={props.req.productStatus === 'Sold' ? '#0088ff' : props.req.productStatus === 'Bought' ? '#cc0000' : '#448812'} color="#f0f0f0" fontFamily="Arial">
-          {props.req.productStatus}
+        <RightCornerLargeRibbon backgroundColor={props.req.productStatus === 'Sold' ? '#cc0000' : props.req.productStatus === 'Bought' ? '#448812' : '#0088ff'} color="#f0f0f0" fontFamily="Arial">
+          {props.req.productStatus ? props.req.productStatus : 'New'}
         </RightCornerLargeRibbon>
       </RibbonContainer>
     </Box>

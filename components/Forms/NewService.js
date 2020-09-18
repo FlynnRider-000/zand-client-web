@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import SunEditor, { buttonList } from 'suneditor-react';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import 'suneditor/dist/css/suneditor.min.css';
+import '../../static/css/suneditor.min.css';
 import {
   IconButton,
   Paper,
@@ -35,6 +35,7 @@ function NewRequest() {
   const [openNotif, setNotif] = useState(false);
 
   useEffect(() => {
+    console.log(serviceAdded);
     if (serviceAdded) {
       setServiceAddingState(false);
       dispatch(Actions.serviceAdded(false));

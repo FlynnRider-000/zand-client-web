@@ -1,5 +1,6 @@
 const withCSS = require('@zeit/next-css');
 const withImages = require('next-images');
+const path = require('path');
 
 module.exports = withImages(
   withCSS({
@@ -10,15 +11,24 @@ module.exports = withImages(
     },
     webpack: (config, options) => {
       cssModules: true,
-      //      config.module.rules.push({
-      //          enforce: 'pre',
-      //          test: /\.js?$/,
-      //          exclude: [/node_modules/],
-      //          loader: 'eslint-loader',
-      //          options: {
-      //            quiet: true,
-      //          }
-      //      });
+      config.module.rules.push({
+        rules: [
+          {
+            test: /\.css$/i,
+            use: ['css-loader'],
+            include: [path.join(__dirname, '..', 'node_modules')],
+          },
+        ],
+      }),
+      // config.module.rules.push({
+      //     enforce: 'pre',
+      //     test: /\.js?$/,
+      //     exclude: [/node_modules/],
+      //     loader: 'eslint-loader',
+      //     options: {
+      //       quiet: true,
+      //     }
+      // });
       config.node = {
         fs: 'empty'
       };

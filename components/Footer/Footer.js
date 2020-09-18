@@ -23,19 +23,19 @@ import useStyles from './footer-style';
 const news = [
   {
     _id: 1,
-    description: 'Launched – ZandCell Medical product marketplace',
+    description: 'Launched – ZandMedicine Medical product marketplace',
     link: 'https://zandcell.com/launched-zandcell-medical-product-marketplace/',
     date: '2020-08-17',
   },
   {
     _id: 2,
-    description: 'ZandCell besvarar kritiken från Läkemedelsverket',
+    description: 'ZandMedicine besvarar kritiken från Läkemedelsverket',
     link: 'https://zandcell.com/zandcell-besvarar-kritiken-fran-lakemedelsverket/',
     date: '2020-03-25',
   },
   {
     _id: 3,
-    description: 'ZandCell Announces Availability of Coronavirus Rapid Diagnostic Test Kit',
+    description: 'ZandMedicine Announces Availability of Coronavirus Rapid Diagnostic Test Kit',
     link: 'https://zandcell.com/zandcell-announces-availability-of-coronavirus-rapid-diagnostic-test-kit/',
     date: '2020-03-20',
   }
@@ -80,7 +80,7 @@ function Footer(props) {
                 About us
               </Typography>
               <Typography color="textPrimary" className={classes.footerDesc} gutterBottom variant="subtitle2" style={{ color: colors.content }}>
-                ZandCell is a biotechnology company pioneering the advancements and therapeutic applications of Stem Cell Therapy. Our Technology is called “Regenerate”.
+                ZandMedicine is a biotechnology company pioneering the advancements and therapeutic applications of Stem Cell Therapy. Our Technology is called “Regenerate”.
               </Typography>
               <Link href="https://secure.sitelock.com/public/verify/zandcell.com" target="_blank">
                 <img src="https://shield.sitelock.com/shield/zandcell.com" alt="SiteLock" />
@@ -150,7 +150,7 @@ function Footer(props) {
         <Grid container spacing={0}>
           <Box p={3} pb={0}>
             <Typography color="textPrimary" className={classes.footerSecurity} gutterBottom variant="subtitle2" style={{ color: colors.content, paddingRight: 20 }}>
-            @ 2020 ZandCell. All Rights Reserved.
+            @ 2020 ZandMedicine. All Rights Reserved.
             </Typography>
             {security.map((item) => (
               <Typography color="textPrimary" className={classes.footerSecurity} gutterBottom variant="subtitle2" style={{ color: colors.content }} key={item._id}>
