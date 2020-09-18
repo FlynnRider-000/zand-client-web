@@ -113,6 +113,30 @@ const contactStyles = makeStyles(theme => ({
     }
   },
   light: {},
+  inputService: {
+    width: '100%',
+    margin: '10px 0px',
+    '& label': {
+      left: theme.spacing(0.5),
+    },
+    '& > div': {
+      overflow: 'hidden',
+      '& input, textarea': {
+        paddingLeft: theme.spacing(2),
+      }
+    },
+    '&$light': {
+      '& label': {
+        color: theme.palette.common.white,
+      },
+      '& > div': {
+        border: `1px solid ${fade(theme.palette.primary.light, 0.5)}`,
+        '& input': {
+          color: theme.palette.common.white,
+        },
+      }
+    }
+  },
   input: {
     width: '100%',
     '& label': {

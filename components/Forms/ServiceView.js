@@ -28,6 +28,13 @@ import {
   TextField,
   Grid
 } from '@material-ui/core';
+import 'date-fns';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 import PropTypes from 'prop-types';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useRouter } from 'next/router';
@@ -98,8 +105,8 @@ function NewRequest() {
     lastName: '',
     phoneNumber: '',
     address: '',
-    startDate: '',
-    endDate: '',
+    startDate: new Date(),
+    endDate: new Date(),
     description: '',
   });
 
@@ -114,6 +121,14 @@ function NewRequest() {
 
   const handleClientInfoChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
+  };
+
+  const handleStartDateChange = date => {
+    setValues({ ...values, startDate: date });
+  };
+
+  const handleEndDateChange = date => {
+    setValues({ ...values, endDate: date });
   };
 
   const handleClose = () => {
@@ -399,8 +414,8 @@ function NewRequest() {
               To book this service, please enter correct details here.
             </DialogContentText>
             <TextField
-              variant="filled"
-              className={classes.input}
+              variant="outlined"
+              className={classes.inputService}
               label="First Name*"
               fullWidth
               onChange={handleClientInfoChange('firstName')}
@@ -408,8 +423,8 @@ function NewRequest() {
               value={values.firstName}
             />
             <TextField
-              variant="filled"
-              className={classes.input}
+              variant="outlined"
+              className={classes.inputService}
               label="Last Name*"
               fullWidth
               onChange={handleClientInfoChange('lastName')}
@@ -417,8 +432,8 @@ function NewRequest() {
               value={values.lastName}
             />
             <TextField
-              variant="filled"
-              className={classes.input}
+              variant="outlined"
+              className={classes.inputService}
               label="Phone Number*"
               fullWidth
               onChange={handleClientInfoChange('phoneNumber')}
@@ -426,37 +441,45 @@ function NewRequest() {
               value={values.phoneNumber}
             />
             <TextField
-              variant="filled"
-              className={classes.input}
+              variant="outlined"
+              className={classes.inputService}
               label="Address*"
               fullWidth
               onChange={handleClientInfoChange('address')}
               name="address"
               value={values.address}
             />
-            <TextField
-              variant="filled"
-              className={classes.input}
-              label="Start Date*"
-              fullWidth
-              onChange={handleClientInfoChange('startDate')}
-              name="startDate"
-              value={values.startDate}
-            />
-            <TextField
-              variant="filled"
-              className={classes.input}
-              label="End Date*"
-              fullWidth
-              onChange={handleClientInfoChange('endDate')}
-              name="endDate"
-              value={values.endDate}
-            />
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <KeyboardDatePicker
+                margin="normal"
+                id="date-picker-dialog"
+                label="Start Date"
+                format="MM/dd/yyyy"
+                fullWidth
+                value={values.startDate}
+                onChange={handleStartDateChange}
+                KeyboardButtonProps={{
+                  'aria-label': 'change date',
+                }}
+              />
+              <KeyboardDatePicker
+                margin="normal"
+                fullWidth
+                id="date-picker-dialog1"
+                label="End Date"
+                format="MM/dd/yyyy"
+                value={values.endDate}
+                onChange={handleEndDateChange}
+                KeyboardButtonProps={{
+                  'aria-label': 'change date',
+                }}
+              />
+            </MuiPickersUtilsProvider>
             <TextField
               multiline
               rows="7"
-              variant="filled"
-              className={classes.input}
+              variant="outlined"
+              className={classes.inputService}
               label="Description*"
               fullWidth
               onChange={handleClientInfoChange('description')}
