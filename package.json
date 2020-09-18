@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "node index.js",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 80"
   },
   "dependencies": {
     "@axetroy/react-download": "^1.1.1",
