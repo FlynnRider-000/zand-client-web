@@ -328,7 +328,7 @@ function NewRequest() {
             style={{ width: '100%' }}
             onChange={handleChange('productCategory')}
           >
-            { productCategory.filter(category => !category.isDeleted).map((category) => (
+            { productCategory && productCategory.filter(category => !category.isDeleted).map((category) => (
               <MenuItem key={category._id} value={category.name}>{category.name}</MenuItem>
             )) }
           </Select>
@@ -405,7 +405,7 @@ function NewRequest() {
         <Grid item md={12} sm={12} style={{ paddingTop: '0px' }}>
           <List>
             {
-              docTypes.filter((docType) => docType.isRequired).map((data) => (
+              docTypes && docTypes.filter((docType) => docType.isRequired).map((data) => (
                 <ListItem key={'doc' + data.name}>
                   <ListItemIcon>
                     {
