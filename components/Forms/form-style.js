@@ -115,7 +115,7 @@ const contactStyles = makeStyles(theme => ({
   light: {},
   inputService: {
     width: '100%',
-    margin: '10px 0px',
+    margin: '10px 0px !important',
     '& label': {
       left: theme.spacing(0.5),
     },
