@@ -179,7 +179,7 @@ function Register(props) {
                     </span>
                   )}
                 />
-                <Button variant="contained" fullWidth onClick={handleSubmit} type="submit" color="secondary" size="large">
+                <Button variant="contained" fullWidth type="submit" color="secondary" size="large">
                   {t('common:continue')}
                 </Button>
               </div>
