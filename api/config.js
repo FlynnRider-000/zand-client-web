@@ -11,8 +11,8 @@ const secondary = {
 // };
 
 const primary = {
-  serverUrl: 'http://164.90.239.162/',
-  baseUrl: 'http://164.90.239.162/api/',
+  serverUrl: 'https://api.zandmedicine.com/',
+  baseUrl: 'https://api.zandmedicine.com/api/',
 };
 
 axios.interceptors.request.use(req => {
