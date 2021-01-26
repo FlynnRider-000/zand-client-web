@@ -64,7 +64,7 @@ function Register(props) {
   };
 
   const handleSubmit = () => {
-    console.log('data submited', values);
+    // console.log('data submited', values);
     dispatch(Actions.signUp({
       name: values.name,
       email: values.email,
@@ -89,7 +89,7 @@ function Register(props) {
         </div>
         {
           !registerSuccess ? (
-            <ValidatorForm onError={errors => console.log(errors)} onSubmit={handleSubmit}>
+            <ValidatorForm onError={errors => // console.log(errors)} onSubmit={handleSubmit}>
               <Grid container spacing={3}>
                 <Grid item xs={12}>
                   <TextValidator

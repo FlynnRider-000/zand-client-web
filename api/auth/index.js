@@ -19,12 +19,12 @@ export const signIn = ({ email, password, macAddress }) => {
     macAddress
   };
 
-  console.log(apiConfig());
+  // console.log(apiConfig());
 
   const apiUrl = apiConfig().baseUrl + apiModule + 'signIn';
 
-  console.log(user);
-  console.log(apiUrl);
+  // console.log(user);
+  // console.log(apiUrl);
 
   return myAxios({
     method: 'POST',

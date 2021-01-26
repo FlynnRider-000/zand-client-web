@@ -42,7 +42,7 @@ function SettingPage(props) {
   const { onToggleDark, onToggleDir, t } = props;
 
   useEffect(() => {
-    console.log(router.query);
+    // console.log(router.query);
   }, []);
 
   return (

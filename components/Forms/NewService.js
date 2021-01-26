@@ -35,7 +35,7 @@ function NewRequest() {
   const [openNotif, setNotif] = useState(false);
 
   useEffect(() => {
-    console.log(serviceAdded);
+    // console.log(serviceAdded);
     if (serviceAdded) {
       setServiceAddingState(false);
       dispatch(Actions.serviceAdded(false));

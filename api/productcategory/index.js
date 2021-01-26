@@ -4,7 +4,7 @@ import apiConfig from '../config';
 const apiModule = 'product-category/';
 
 export const getAllProductCategories = (author) => {
-  console.log('[api] get all product categories');
+  // console.log('[api] get all product categories');
   const apiUrl = apiConfig().baseUrl + apiModule + 'get-all';
   return axios({
     method: 'POST',

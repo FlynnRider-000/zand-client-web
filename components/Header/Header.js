@@ -44,14 +44,14 @@ function Header(props) {
     }
   };
   useEffect(() => {
-    console.log('Header');
+    // console.log('Header');
     const storageAccessToken = localStorage.getItem('access_token') || '';
-    console.log(signInState);
+    // console.log(signInState);
     if (signInState === '') {
       if (storageAccessToken !== undefined && storageAccessToken !== '') {
         dispatch(Actions.signInWithToken(storageAccessToken));
       } else {
-        console.log('need to login = Header.js');
+        // console.log('need to login = Header.js');
         router.push('/login');
       }
     }

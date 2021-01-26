@@ -146,7 +146,7 @@ function Document() {
 
   useEffect(() => {
     if (pageLoadingState) {
-      console.log('page data loaded');
+      // console.log('page data loaded');
     }
   }, [pageLoadingState]);
 
@@ -183,7 +183,7 @@ function Document() {
   };
 
   const confirmAddComment = () => {
-    console.log(decodedToken);
+    // console.log(decodedToken);
     api.addComment({
       comment: {
         userName: decodedToken.userName,
@@ -193,7 +193,7 @@ function Document() {
       },
       attachFile: attachFiles
     }).then((response) => {
-      console.log(response);
+      // console.log(response);
       if (!response.success) {
         dispatch(Actions.showNotification('There are issues in submitting documents'));
         setPageLoadingState(true);
@@ -490,7 +490,7 @@ function Document() {
     }));
   };
 
-  console.log(currentRequest);
+  // console.log(currentRequest);
 
   return (
     <div className={classes.pageWrap}>

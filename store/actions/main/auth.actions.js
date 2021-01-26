@@ -21,7 +21,7 @@ export const signIn = (options) => (dispatch) => {
   const opt = { ...options, password };
   dispatch({ type: actionApi.SET_API_BUSY, isBusy: true });
   api.signIn(opt).then((result) => {
-    console.log(result);
+    // console.log(result);
     dispatch({ type: actionApi.SET_API_BUSY, isBusy: false });
     if (result.data.success) {
       localStorage.setItem('access_token', result.data.access_token);
@@ -30,7 +30,7 @@ export const signIn = (options) => (dispatch) => {
       dispatch(actionNotification.showNotification(result.data.message));
     }
   }).catch(err => {
-    console.log('[sign in error]', err);
+    // console.log('[sign in error]', err);
     dispatch({ type: actionApi.SET_API_BUSY, isBusy: false });
     dispatch(actionNotification.showNotification('Something went wrong.'));
   });
@@ -41,21 +41,21 @@ export const signUp = (userData) => (dispatch) => {
   api.signUp(userData).then((result) => {
     dispatch({ type: actionApi.SET_API_BUSY, isBusy: false });
     if (result.data.success) {
-      console.log('[sign up ] Attempt to sign in');
+      // console.log('[sign up ] Attempt to sign in');
       dispatch(actionNotification.showNotification('Sign up Success, please verify your account and sign in.'));
     } else {
       dispatch(actionNotification.showNotification(result.data.message));
-      console.log('error sign up');
+      // console.log('error sign up');
     }
   }).catch(err => {
-    console.log('[sign up error]', err);
+    // console.log('[sign up error]', err);
     dispatch({ type: actionApi.SET_API_BUSY, isBusy: false });
     dispatch(actionNotification.showNotification('Something went wrong.'));
   });
 };
 
 export const signInWithToken = (token) => (dispatch) => {
-  console.log('[sign with token]', token);
+  // console.log('[sign with token]', token);
   dispatch({ type: actionApi.SET_API_BUSY, isBusy: true });
   api.signInWithToken(token).then((result) => {
     dispatch({ type: actionApi.SET_API_BUSY, isBusy: false });
@@ -63,18 +63,18 @@ export const signInWithToken = (token) => (dispatch) => {
       localStorage.setItem('access_token', result.data.access_token);
       dispatch({ type: SIGN_IN_WITH_TOKEN, payload: result.data });
     } else {
-      console.log('[sign out] token expired or failed');
+      // console.log('[sign out] token expired or failed');
       dispatch({ type: SIGN_OUT });
     }
   }).catch(err => {
-    console.log(err);
+    // console.log(err);
     dispatch({ type: actionApi.SET_API_BUSY, isBusy: false });
     dispatch(actionNotification.showNotification('Something went wrong.'));
   });
 };
 
 export const signOut = () => (dispatch) => {
-  console.log('[sign out]');
+  // console.log('[sign out]');
   localStorage.setItem('access_token', '');
   dispatch({ type: SIGN_OUT });
 };

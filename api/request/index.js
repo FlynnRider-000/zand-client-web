@@ -54,12 +54,12 @@ export const newRequest = (request) => {
       }
     }
   }
-  console.log(fileList);
+  // console.log(fileList);
   formData.append('documents', JSON.stringify(docs));
   formData.append('fileList', JSON.stringify(fileList));
 
   const apiUrl = apiConfig().baseUrl + apiModule + 'add-new-request';
-  console.log(formData.get('userName'));
+  // console.log(formData.get('userName'));
   return fetch(apiUrl, {
     method: 'POST',
     headers: { auth: localStorage.getItem('access_token') },
@@ -68,7 +68,7 @@ export const newRequest = (request) => {
 };
 
 export const addComment = (commentObj) => {
-  console.log('[api] add comment : ', commentObj);
+  // console.log('[api] add comment : ', commentObj);
   const formData = new FormData();
   const apiUrl = apiConfig().baseUrl + apiModule + 'add-comment';
 
@@ -85,7 +85,7 @@ export const addComment = (commentObj) => {
 };
 
 export const getAllRequests = (requestType, requestStatus, userName, featuredRequest = false) => {
-  console.log('[api] get all requests');
+  // console.log('[api] get all requests');
   const apiUrl = apiConfig().baseUrl + apiModule + 'get-all';
   return myAxios({
     method: 'POST',
@@ -97,7 +97,7 @@ export const getAllRequests = (requestType, requestStatus, userName, featuredReq
 };
 
 export const getRequestContentById = (requestId) => {
-  console.log('[api] get all documets by request id : request id : ' + requestId);
+  // console.log('[api] get all documets by request id : request id : ' + requestId);
   const apiUrl = apiConfig().baseUrl + apiModule + 'get-request-content-by-id';
   return myAxios({
     method: 'POST',
@@ -108,7 +108,7 @@ export const getRequestContentById = (requestId) => {
 
 export const sendEditRequest = (editInfoObj) => {
   const { reqId } = editInfoObj;
-  console.log('[api] send edit request : request id : ' + reqId);
+  // console.log('[api] send edit request : request id : ' + reqId);
   const apiUrl = apiConfig().baseUrl + apiModule + 'set-edit-request-info';
   return myAxios({
     method: 'POST',

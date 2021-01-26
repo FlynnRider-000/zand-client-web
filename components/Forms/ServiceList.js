@@ -71,7 +71,7 @@ function ServiceList() {
 
   useEffect(() => {
     if (pageLoadingState) {
-      console.log('page data loaded');
+      // console.log('page data loaded');
     }
     dispatch(Actions.getAllServices());
     dispatch(Actions.getBookedServices());

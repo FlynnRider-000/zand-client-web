@@ -52,10 +52,10 @@ function FeaturedRequest() {
 
   useEffect(() => {
     if (pageLoadingState) {
-      console.log('page data loaded');
+      // console.log('page data loaded');
     }
     getFeaturedRequests();
-    console.log('getting all requests');
+    // console.log('getting all requests');
   }, [pageLoadingState]);
 
   const handleClose = () => {

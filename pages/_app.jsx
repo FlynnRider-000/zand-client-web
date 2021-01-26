@@ -37,7 +37,7 @@ class MyApp extends App {
   }
 
   componentDidMount() {
-    console.log('app loaded');
+    // console.log('app loaded');
 
     // Set layout direction
     document.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';

@@ -41,7 +41,7 @@ function AddNewPage(props) {
   const { onToggleDark, onToggleDir } = props;
 
   useEffect(() => {
-    console.log(router.query);
+    // console.log(router.query);
   }, []);
 
   return (

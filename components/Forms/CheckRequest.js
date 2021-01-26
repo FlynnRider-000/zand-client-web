@@ -116,10 +116,10 @@ function CheckRequest() {
 
   useEffect(() => {
     if (pageLoadingState) {
-      console.log('page data loaded');
+      // console.log('page data loaded');
     }
     getAllRequests(reqType, reqStatus);
-    console.log('getting all requests');
+    // console.log('getting all requests');
   }, [pageLoadingState]);
 
   const handleClose = () => {

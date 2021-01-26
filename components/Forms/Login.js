@@ -44,7 +44,7 @@ function Login(props) {
   useEffect(() => {
     const storageAccessToken = localStorage.getItem('access_token');
     if (storageAccessToken !== undefined && storageAccessToken !== '') {
-      console.log(storageAccessToken);
+      // console.log(storageAccessToken);
       if (!apiIsBusy) {
         tokenExistOnOpened = 1;
         dispatch(Actions.signInWithToken(storageAccessToken));
@@ -57,7 +57,7 @@ function Login(props) {
       tokenExistOnOpened = 0;
       return;
     }
-    console.log(accessToken);
+    // console.log(accessToken);
     if (accessToken !== '') {
       onSignSuccess();
     }
@@ -74,7 +74,7 @@ function Login(props) {
   };
 
   const handleSubmit = () => {
-    console.log('data submited');
+    // console.log('data submited');
     dispatch(Actions.signIn({
       email: values.email,
       password: values.password
@@ -82,9 +82,9 @@ function Login(props) {
   };
 
   const handleCaptchaChange = (value) => {
-    console.log('Captcha value:', value);
+    // console.log('Captcha value:', value);
     if (value !== null) {
-      console.log('data submited');
+      // console.log('data submited');
       setShowCaptcha(false);
       dispatch(Actions.signIn({
         email: values.email,
@@ -94,7 +94,7 @@ function Login(props) {
   };
 
   const asyncScriptOnLoad = () => {
-    console.log('scriptLoad - reCaptcha Ref-', reCaptchaRef);
+    // console.log('scriptLoad - reCaptcha Ref-', reCaptchaRef);
   };
 
   return (
@@ -110,8 +110,8 @@ function Login(props) {
           </Button>
         </div>
         <ValidatorForm
-          onError={errors => console.log(errors)}
-          onSubmit={() => { console.log('abcde'); }}
+          onError={errors => // console.log(errors)}
+          onSubmit={() => { // console.log('abcde'); }}
         >
           <Grid container spacing={3}>
             <Grid item xs={12}>

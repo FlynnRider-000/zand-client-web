@@ -56,7 +56,7 @@ function Contact(props) {
   };
 
   const handleSubmit = () => {
-    console.log('13244321');
+    // console.log('13244321');
   };
 
   const handleClose = () => {
@@ -64,16 +64,16 @@ function Contact(props) {
   };
 
   const handleCaptchaChange = (value) => {
-    console.log('Captcha value:', value);
+    // console.log('Captcha value:', value);
     if (value !== null) {
-      console.log('data submited');
+      // console.log('data submited');
       setShowCaptcha(false);
       setNotif(true);
     }
   };
 
   const asyncScriptOnLoad = () => {
-    console.log('scriptLoad - reCaptcha Ref-', reCaptchaRef);
+    // console.log('scriptLoad - reCaptcha Ref-', reCaptchaRef);
   };
 
   return (
@@ -127,7 +127,7 @@ function Contact(props) {
             <div className={classes.form}>
               <ValidatorForm
                 onSubmit={handleSubmit}
-                onError={errors => console.log(errors)}
+                onError={errors => // console.log(errors)}
               >
                 <Grid container spacing={6}>
                   <Grid item md={6} xs={12}>

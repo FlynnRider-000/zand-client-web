@@ -1,14 +1,14 @@
 {
   "private": true,
   "name": "com.zandmedicine.commodity",
-  "description": "My application description",
+  "description": "Zandmedicine",
   "version": "1.0.2",
   "author": "",
   "main": "index.js",
   "scripts": {
     "dev": "node index.js",
     "build": "next build",
-    "start": "next start -p 8000"
+    "start": "next start -p 1788"
   },
   "dependencies": {
     "@axetroy/react-download": "^1.1.1",

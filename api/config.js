@@ -21,12 +21,12 @@ axios.interceptors.request.use(req => {
 });
 
 axios.interceptors.response.use(res => res, (error) => {
-  console.log('error calling api');
+  // console.log('error calling api');
   if (!error.response) {
-    console.log('network error, use secondary server');
-    console.log(error.config);
+    // console.log('network error, use secondary server');
+    // console.log(error.config);
     if (localStorage.getItem('server_origin') === 'secondary') {
-      console.log('second server is dead, too');
+      // console.log('second server is dead, too');
     }
     localStorage.setItem('server_origin', 'secondary');
 
@@ -42,14 +42,14 @@ const getApiConfig = () => {
 };
 
 export const myAxios = (config) => new Promise(async (resolve) => {
-  console.log('myAxios', config);
+  // console.log('myAxios', config);
   const resp = await axios(config);
-  console.log(resp);
+  // console.log(resp);
   if (resp) {
     resolve(resp);
   } else {
     const resp1 = await axios({ ...config, url: secondary.baseUrl + config.url.slice(primary.baseUrl.length) });
-    console.log(resp1);
+    // console.log(resp1);
     resolve(resp1);
   }
 });

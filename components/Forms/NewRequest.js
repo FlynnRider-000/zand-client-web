@@ -95,9 +95,9 @@ function NewRequest() {
   const productCategory = useSelector(state => state.main.requestReducer.productCategories);
 
   useEffect(() => {
-    console.log(pageLoadingState);
+    // console.log(pageLoadingState);
     if (!pageLoadingState) {
-      console.log('load page data');
+      // console.log('load page data');
       dispatch(Actions.getDocTypes());
       dispatch(Actions.getAllProductCategories());
     }
@@ -105,14 +105,14 @@ function NewRequest() {
 
   useEffect(() => {
     if (pageLoadingState) {
-      console.log('page data loaded');
+      // console.log('page data loaded');
     }
   }, [pageLoadingState]);
 
 
   useEffect(() => {
     if (!pageLoadingState && docTypes.length > 0) {
-      console.log(docTypes);
+      // console.log(docTypes);
       setPageLoadingState(true);
     }
   }, [docTypes]);
@@ -138,7 +138,7 @@ function NewRequest() {
   const handleSubmit = () => {
     setPageLoadingState(false);
     api.newRequest({ ...values, userName: userData.userName }).then((response) => {
-      console.log(response);
+      // console.log(response);
       if (!response.success) {
         dispatch(Actions.showNotification('There are issues in submitting documents'));
         setPageLoadingState(true);
@@ -157,7 +157,7 @@ function NewRequest() {
 
   const validateStep = (step) => {
     if (step === 0) {
-      console.log('validate step1');
+      // console.log('validate step1');
       if (values.intendedUse === '' && values.requestType === 'buy') return false;
       if (values.requestType === '') return false;
       if (values.model === '') return false;
@@ -170,7 +170,7 @@ function NewRequest() {
       if (values.deliveryLocation === '') return false;
       dispatch(Actions.getDocTypes(values.requestType));
     } else if (step === 1) {
-      console.log('validate step2');
+      // console.log('validate step2');
       if (values.documents.length === 0) return false;
     }
     return true;
@@ -182,7 +182,7 @@ function NewRequest() {
 
   //= ==========STEPPER==============
   const handleNext = () => {
-    console.log(activeStep);
+    // console.log(activeStep);
     if (activeStep > 2) {
       router.push('/');
     }
@@ -208,18 +208,18 @@ function NewRequest() {
 
   const handleFileChanged = (event) => {
     const { files } = event.target;
-    console.log(files);
+    // console.log(files);
     let i;
     const list = [];
     for (i = 0; i < files.length; i += 1) {
       list.push(files.item(i));
     }
-    console.log(files);
+    // console.log(files);
     setNewDocument({ ...newDocument, files: list });
   };
 
   const handelOpenNewDocument = () => {
-    console.log('open Add new');
+    // console.log('open Add new');
     setNewDocument({
       docType: '',
       name: '',
@@ -239,15 +239,15 @@ function NewRequest() {
       docCounting += 1;
       setValues({ ...values, documents: docList });
       setShowNewDoc(false);
-      console.log(docList);
+      // console.log(docList);
     }
   };
 
   const handleDeleteDocument = (index) => {
-    console.log('delete: ', index);
+    // console.log('delete: ', index);
     let docList = {};
     docList = values.documents;
-    console.log(docList);
+    // console.log(docList);
     docList.splice(index, 1);
     setValues({ ...values, documents: docList });
   };

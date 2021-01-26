@@ -2,7 +2,7 @@ import apiConfig, { myAxios } from '../config';
 
 const apiModule = 'service/';
 export const getAllServices = () => {
-  console.log('[api] get all services');
+  // console.log('[api] get all services');
   const apiUrl = apiConfig().baseUrl + apiModule + 'get-services';
   return myAxios({
     method: 'POST',
@@ -11,7 +11,7 @@ export const getAllServices = () => {
 };
 
 export const getBookListByServiceId = (serviceId) => {
-  console.log('[api] getBookListByServiceId', serviceId);
+  // console.log('[api] getBookListByServiceId', serviceId);
   const apiUrl = apiConfig().baseUrl + apiModule + 'get-book-list-by-serviceId';
   return myAxios({
     method: 'POST',
@@ -21,7 +21,7 @@ export const getBookListByServiceId = (serviceId) => {
 };
 
 export const acceptCancelBookRequest = (bookId) => {
-  console.log('[api] acceptCancelBookRequest', bookId);
+  // console.log('[api] acceptCancelBookRequest', bookId);
   const apiUrl = apiConfig().baseUrl + apiModule + 'accept-cancel-request';
   return myAxios({
     method: 'POST',
@@ -31,7 +31,7 @@ export const acceptCancelBookRequest = (bookId) => {
 };
 
 export const getBookInfoByServIdUsrName = (serviceId) => {
-  console.log('[api] getBookInfoByServIdUsrName', serviceId);
+  // console.log('[api] getBookInfoByServIdUsrName', serviceId);
   const apiUrl = apiConfig().baseUrl + apiModule + 'get-book-info-by-serviceIdUserName';
   return myAxios({
     method: 'POST',
@@ -41,7 +41,7 @@ export const getBookInfoByServIdUsrName = (serviceId) => {
 };
 
 export const getBookedService = () => {
-  console.log('[api] book service');
+  // console.log('[api] book service');
   const apiUrl = apiConfig().baseUrl + apiModule + 'get-booked-service-by-user';
   return myAxios({
     method: 'POST',
@@ -50,7 +50,7 @@ export const getBookedService = () => {
 };
 
 export const bookService = (bookInfo) => {
-  console.log('[api] get add service');
+  // console.log('[api] get add service');
   const apiUrl = apiConfig().baseUrl + apiModule + 'book-service';
   return myAxios({
     method: 'POST',
@@ -60,7 +60,7 @@ export const bookService = (bookInfo) => {
 };
 
 export const unbookService = (bookInfo) => {
-  console.log('[api] get add service');
+  // console.log('[api] get add service');
   const apiUrl = apiConfig().baseUrl + apiModule + 'unbook-service';
   return myAxios({
     method: 'POST',
@@ -70,7 +70,7 @@ export const unbookService = (bookInfo) => {
 };
 
 export const addService = (serviceObj) => {
-  console.log('[api] get add service');
+  // console.log('[api] get add service');
   const apiUrl = apiConfig().baseUrl + apiModule + 'add-service';
   return myAxios({
     method: 'POST',
@@ -80,7 +80,7 @@ export const addService = (serviceObj) => {
 };
 
 export const registerServiceProvider = (providerInfo) => {
-  console.log('[api] register service provider', providerInfo);
+  // console.log('[api] register service provider', providerInfo);
   const apiUrl = apiConfig().baseUrl + apiModule + 'register-service-provider';
   return myAxios({
     method: 'POST',
@@ -90,7 +90,7 @@ export const registerServiceProvider = (providerInfo) => {
 };
 
 export const getProviderInfo = (serviceId) => {
-  console.log('[api] get provider info', serviceId);
+  // console.log('[api] get provider info', serviceId);
   const apiUrl = apiConfig().baseUrl + apiModule + 'get-provider-info-by-service-id';
   return myAxios({
     method: 'POST',
