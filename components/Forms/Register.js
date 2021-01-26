@@ -89,7 +89,7 @@ function Register(props) {
         </div>
         {
           !registerSuccess ? (
-            <ValidatorForm onError={errors => // console.log(errors)} onSubmit={handleSubmit}>
+            <ValidatorForm onSubmit={handleSubmit}>
               <Grid container spacing={3}>
                 <Grid item xs={12}>
                   <TextValidator

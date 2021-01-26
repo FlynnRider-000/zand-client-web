@@ -127,7 +127,6 @@ function Contact(props) {
             <div className={classes.form}>
               <ValidatorForm
                 onSubmit={handleSubmit}
-                onError={errors => // console.log(errors)}
               >
                 <Grid container spacing={6}>
                   <Grid item md={6} xs={12}>

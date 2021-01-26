@@ -110,8 +110,7 @@ function Login(props) {
           </Button>
         </div>
         <ValidatorForm
-          onError={errors => // console.log(errors)}
-          onSubmit={() => { // console.log('abcde'); }}
+          onSubmit={() => { console.log('Login'); }}
         >
           <Grid container spacing={3}>
             <Grid item xs={12}>
