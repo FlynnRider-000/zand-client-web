@@ -52,7 +52,8 @@ function Header(props) {
         dispatch(Actions.signInWithToken(storageAccessToken));
       } else {
         // console.log('need to login = Header.js');
-        router.push('/login');
+        // router.push('/login');
+        router.push('/maintain');
       }
     }
     window.addEventListener('scroll', handleScroll);
