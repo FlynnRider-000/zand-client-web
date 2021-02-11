@@ -1,26 +1,28 @@
 import React, { Fragment } from 'react';
 import Head from 'next/head';
 import brand from '../static/text/brand';
-import ContactForm from '../components/Forms/Contact';
+import SettingForm from '../components/Forms/Setting';
+import Notification from '../components/Notification';
 
-function Contact() {
+function Setting() {
   return (
     <Fragment>
       <Head>
         <title>
           { brand.crypto.name }
-          &nbsp; - Contact
+          &nbsp; - Setting
         </title>
       </Head>
       <div>
-        <ContactForm />
+        <SettingForm />
+        <Notification />
       </div>
     </Fragment>
   );
 }
 
-Contact.getInitialProps = async () => ({
+Setting.getInitialProps = async () => ({
   namespacesRequired: ['common'],
 });
 
-export default Contact;
+export default Setting;

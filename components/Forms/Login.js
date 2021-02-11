@@ -154,7 +154,7 @@ function Login(props) {
                 </span>
               )}
             />
-            <Button size="small" className={classes.buttonLink} href="#">
+            <Button size="small" className={classes.buttonLink} onClick={() => router.push('/forgot-password')}>
               {t('common:login_forgot')}
             </Button>
           </div>

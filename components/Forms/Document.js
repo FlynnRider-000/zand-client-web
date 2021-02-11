@@ -399,7 +399,7 @@ function Document() {
                               <Button style={{ width: '100%', alignItems: 'left' }} key={'Download Link -- ' + fileIndex} href={config().serverUrl + file.fileName} target="_blank" download>
                                 <GetAppIcon style={{ marginBottom: -7, float: 'left' }} />
                                 <div style={{
-                                  maxWidth: 160, wordWrap: 'break', width: '100%', textAlign: 'left'
+                                  maxWidth: 160, wordWrap: 'break', width: '100%', textAlign: 'left', fontSize: 12
                                 }}
                                 >
                                   <font style={file.status === 'attached' ? { wordWrap: 'break-word', color: '#03a9f4' } : { wordWrap: 'break-word' }}>{file.name}</font>
@@ -770,90 +770,92 @@ function Document() {
                         </tr>
                       </tbody>
                     </table>
-                    <Accordion>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                      >
-                        <Typography variant="subtitle1">Update Request</Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Grid container spacing={4}>
-                          <Grid item xs={12}>
-                            <Box pt={1} display="flex" flexDirection="column">
-                              <TextField
-                                variant="filled"
-                                multiline
-                                rows="8"
-                                className={classes.input}
-                                label="Fill Request Information"
-                                onChange={handleEditRequestInfo}
-                                value={editRequestInfo}
-                                style={{ marginTop: 10 }}
-                              />
-                              <Button variant="contained" color="secondary" size="small" style={{ marginTop: 10 }} onClick={sendEditRequest}>
-                                Send Edit Request
-                              </Button>
-                            </Box>
-                            <Typography size="h4" style={{ marginTop: 40 }}>
-                              Request Updated List
-                            </Typography>
-                            <Box pt={2} display="flex" flexdirecion="column">
-                              <Timeline align="alternate">
-                                {
-                                  editHistory.length > 0 && editHistory.map((history, index1) => {
-                                    if (index1 % 2 === 0) {
+                    { decodedToken.userName === currentRequest.userName && (
+                      <Accordion>
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls="panel1a-content"
+                          id="panel1a-header"
+                        >
+                          <Typography variant="subtitle1">Update Request</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <Grid container spacing={4}>
+                            <Grid item xs={12}>
+                              <Box pt={1} display="flex" flexDirection="column">
+                                <TextField
+                                  variant="filled"
+                                  multiline
+                                  rows="8"
+                                  className={classes.input}
+                                  label="Fill Request Information"
+                                  onChange={handleEditRequestInfo}
+                                  value={editRequestInfo}
+                                  style={{ marginTop: 10 }}
+                                />
+                                <Button variant="contained" color="secondary" size="small" style={{ marginTop: 10 }} onClick={sendEditRequest}>
+                                  Send Edit Request
+                                </Button>
+                              </Box>
+                              <Typography size="h4" style={{ marginTop: 40 }}>
+                                Request Updated List
+                              </Typography>
+                              <Box pt={2} display="flex" flexdirecion="column">
+                                <Timeline align="alternate">
+                                  {
+                                    editHistory.length > 0 && editHistory.map((history, index1) => {
+                                      if (index1 % 2 === 0) {
+                                        return (
+                                          <TimelineItem key={'history' + index1}>
+                                            <TimelineOppositeContent style={{ flex: 0, minWidth: 120, paddingLeft: 0 }}>
+                                              <Typography color="textSecondary">{history.updatedAt.slice(0, 10)}</Typography>
+                                            </TimelineOppositeContent>
+                                            <TimelineSeparator>
+                                              <TimelineDot color={history.done ? 'primary' : ''} />
+                                              <TimelineConnector />
+                                            </TimelineSeparator>
+                                            <TimelineContent>
+                                              <Box m={2} mt={0} style={{ display: 'flex', flexDirection: 'row' }}>
+                                                { history.done ? <CheckIcon style={{ fontSize: 20 }} /> : <HourglassEmptyIcon style={{ fontSize: 20 }} />}
+                                                <font style={{ marginLeft: theme.spacing(1) }}>
+                                                  {history.content}
+                                                </font>
+                                              </Box>
+                                            </TimelineContent>
+                                          </TimelineItem>
+                                        );
+                                      }
                                       return (
                                         <TimelineItem key={'history' + index1}>
-                                          <TimelineOppositeContent style={{ flex: 0, minWidth: 120, paddingLeft: 0 }}>
-                                            <Typography color="textSecondary">{history.updatedAt.slice(0, 10)}</Typography>
-                                          </TimelineOppositeContent>
-                                          <TimelineSeparator>
-                                            <TimelineDot color={history.done ? 'primary' : ''} />
-                                            <TimelineConnector />
-                                          </TimelineSeparator>
-                                          <TimelineContent>
+                                          <TimelineOppositeContent>
                                             <Box m={2} mt={0} style={{ display: 'flex', flexDirection: 'row' }}>
                                               { history.done ? <CheckIcon style={{ fontSize: 20 }} /> : <HourglassEmptyIcon style={{ fontSize: 20 }} />}
                                               <font style={{ marginLeft: theme.spacing(1) }}>
                                                 {history.content}
                                               </font>
                                             </Box>
+                                          </TimelineOppositeContent>
+                                          <TimelineSeparator>
+                                            <TimelineDot color={history.done ? 'primary' : ''} />
+                                            <TimelineConnector />
+                                          </TimelineSeparator>
+                                          <TimelineContent style={{ flex: 0, minWidth: 120, paddingLeft: 0 }}>
+                                            <Typography color="textSecondary">{history.updatedAt.slice(0, 10)}</Typography>
                                           </TimelineContent>
                                         </TimelineItem>
                                       );
-                                    }
-                                    return (
-                                      <TimelineItem key={'history' + index1}>
-                                        <TimelineOppositeContent>
-                                          <Box m={2} mt={0} style={{ display: 'flex', flexDirection: 'row' }}>
-                                            { history.done ? <CheckIcon style={{ fontSize: 20 }} /> : <HourglassEmptyIcon style={{ fontSize: 20 }} />}
-                                            <font style={{ marginLeft: theme.spacing(1) }}>
-                                              {history.content}
-                                            </font>
-                                          </Box>
-                                        </TimelineOppositeContent>
-                                        <TimelineSeparator>
-                                          <TimelineDot color={history.done ? 'primary' : ''} />
-                                          <TimelineConnector />
-                                        </TimelineSeparator>
-                                        <TimelineContent style={{ flex: 0, minWidth: 120, paddingLeft: 0 }}>
-                                          <Typography color="textSecondary">{history.updatedAt.slice(0, 10)}</Typography>
-                                        </TimelineContent>
-                                      </TimelineItem>
-                                    );
-                                  })
-                                }
-                              </Timeline>
-                            </Box>
+                                    })
+                                  }
+                                </Timeline>
+                              </Box>
+                            </Grid>
                           </Grid>
-                        </Grid>
-                      </AccordionDetails>
-                      {/* <AccordionActions>
-                        <Button size="small" onClick={() => { handleDeleteDocument(key); }}>Delete</Button>
-                      </AccordionActions> */}
-                    </Accordion>
+                        </AccordionDetails>
+                        {/* <AccordionActions>
+                          <Button size="small" onClick={() => { handleDeleteDocument(key); }}>Delete</Button>
+                        </AccordionActions> */}
+                      </Accordion>
+                    )}
                   </Grid>
                 </Grid>
               </div>

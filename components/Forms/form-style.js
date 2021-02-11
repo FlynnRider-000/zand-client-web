@@ -196,6 +196,9 @@ const contactStyles = makeStyles(theme => ({
     },
   },
   flex: {},
+  btnCenterAlign: {
+    justifyContent: 'center !important'
+  },
   btnArea: {
     marginTop: theme.spacing(5),
     '& button': {

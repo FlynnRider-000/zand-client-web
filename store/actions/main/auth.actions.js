@@ -16,6 +16,18 @@ export const SET_ACCOUNT_BALANCE = '[AUTH] SET ACCOUNT BALANCE';
 
 const encrypt = text => CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(text));
 
+export const resetPassword = (userData) => (dispatch) => {
+  dispatch({ type: actionApi.SET_API_BUSY, isBusy: true });
+  api.resetPassword(userData).then((result) => {
+    dispatch({ type: actionApi.SET_API_BUSY, isBusy: false });
+    dispatch(actionNotification.showNotification('Reset Success! Please check your email.'));
+  }).catch(err => {
+    // console.log('[sign up error]', err);
+    dispatch({ type: actionApi.SET_API_BUSY, isBusy: false });
+    dispatch(actionNotification.showNotification('Something went wrong.'));
+  });
+};
+
 export const signIn = (options) => (dispatch) => {
   const password = encrypt(options.password);
   const opt = { ...options, password };

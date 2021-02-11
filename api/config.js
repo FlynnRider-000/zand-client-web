@@ -6,8 +6,8 @@ const secondary = {
 };
 
 // const primary = {
-//   serverUrl: 'http://localhost:5000/',
-//   baseUrl: 'http://localhost:5000/api/',
+//   serverUrl: 'http://localhost:1789/',
+//   baseUrl: 'http://localhost:1789/api/',
 // };
 
 const primary = {

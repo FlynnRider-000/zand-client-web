@@ -2,6 +2,16 @@ import apiConfig, { myAxios } from '../config';
 
 const apiModule = 'auth/';
 
+export const resetPassword = (userdata) => {
+  const user = userdata;
+  const apiUrl = apiConfig().baseUrl + apiModule + 'reset-password';
+  return myAxios({
+    method: 'POST',
+    url: apiUrl,
+    data: user
+  });  
+};
+
 export const signUp = (userData) => {
   const user = userData;
   const apiUrl = apiConfig().baseUrl + apiModule + 'register';

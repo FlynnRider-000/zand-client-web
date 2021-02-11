@@ -52,8 +52,8 @@ function Header(props) {
         dispatch(Actions.signInWithToken(storageAccessToken));
       } else {
         // console.log('need to login = Header.js');
-        // router.push('/login');
-        router.push('/maintain');
+        router.push('/login');
+        // router.push('/maintain');
       }
     }
     window.addEventListener('scroll', handleScroll);
@@ -111,18 +111,23 @@ function Header(props) {
                     </Button>
                   </li>
                   <li>
-                    <Button onClick={() => router.push('/contact')}>
-                      {t('crypto-landing:header_contact')}
-                    </Button>
-                  </li>
-                  <li>
                     <Button onClick={() => router.push('/service')}>
                       Service
                     </Button>
                   </li>
                   <li>
+                    <Button onClick={() => router.push('/setting')}>
+                      Settings
+                    </Button>
+                  </li>
+                  <li>
                     <Button onClick={() => window.open('https://zandcell.com/category/news-releases/', '_blank')}>
                       News
+                    </Button>
+                  </li>
+                  <li>
+                    <Button onClick={() => router.push('/contact')}>
+                      {t('crypto-landing:header_contact')}
                     </Button>
                   </li>
                   <li>
